@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
  <title>eldobuzz</title>
@@ -61,16 +61,13 @@
   }
   </style>
   <style>
-body {
-  font-family: "Lato", sans-serif;
-}
-
+  
 .sidenav {
-	height: 80%;
+	height: 75%;
 	width: 280px;
 	position: fixed;
 	z-index: 99;
-	top: 130px;
+	top: 140px;
 	left: 0;
 	background-color: #eee;
 	overflow-x: hidden;
@@ -101,7 +98,6 @@ body {
 	right: 0px;
 	font-size: 36px;
 	margin-left: 25px;
-	opacity: 0.5;
 }
 
 @media screen and (max-height: 450px) {
@@ -179,7 +175,30 @@ html {
 	background-size: cover;
 }
 </style>
+<style>
+
+.bar1, .bar2, .bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: #667;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+  transform: rotate(-45deg) translate(-4px, 4px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-4px, -5px);
+  transform: rotate(45deg) translate(-4px, -5px);
+}
+</style>
 </head>
+
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
@@ -217,24 +236,6 @@ $(document).ready(function(){
 					});
 					</script>
                     
-<script>
-function myFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName('a')[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = '';
-        } else {
-            li[i].style.display = 'none';
-
-        }
-    }
-}
-</script>
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "280px";
@@ -279,7 +280,12 @@ function scrollFunction() {
 					    		<p align="center">August has the highest percentage of births.</p>
 					    	</div>
 					    </li>
-					    
+					    <li>
+					    	<div class="latest-news-grid">
+					    		<h3 align="center">Did you know?</h3>
+					    		<p align="center">Unless food is mixed with saliva you can't taste it.</p>
+					    	</div>
+					    </li>
 					    <li>
 					    	<div class="latest-news-grid">
 					    		<h3 align="center">Did you know?</h3>
@@ -314,11 +320,17 @@ function scrollFunction() {
   </div>
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50" style="z-index: 50">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>        
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" onclick="changex(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
       </button>
+<script>
+function changex(x) {
+  x.classList.toggle("change");
+}
+</script>
+      
      <div style="float:left"><svg width="170" height="50">
   <defs>
     <filter id="MyFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="270" height="120">
@@ -359,7 +371,7 @@ function scrollFunction() {
 <div class="modal fade" id="myModal">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header"><svg width="140" height="50">
+                <div class="modal-header"><svg width="160" height="50">
   <defs>
     <filter id="MyFilter_1" filterUnits="userSpaceOnUse" x="0" y="0" width="170" height="120">
       <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur" />
@@ -406,7 +418,7 @@ function scrollFunction() {
   <div class="row">
   
   <div id="mySidenav" class="sidenav">
-  <div><a href="javascript:void(0)" class="closebtn fa fa-times-circle" onclick="closeNav()" title="Close Quick Search" style="font-size:27px"></a></div>
+  <a href="javascript:void(0)" class="closebtn fa fa-times-circle" onclick="closeNav()" title="Close Quick Search" style="font-size:27px"></a>
   <div align="center" style=" margin-top: 40px"><h3 style="color:#F90; margin-left: 10px">Quick Search</h3></br>
   <h5 align="center">
   <input type='text' id='myInput' placeholder="Search list..." title="Type in a shop or place" onkeyup="myFunction()"/>
@@ -417,6 +429,24 @@ $("#myInput").on("keypress", function(event){
             event.target.blur()
         }
 })
+</script>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName('a')[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = '';
+        } else {
+            li[i].style.display = 'none';
+
+        }
+    }
+}
 </script>
   </h5>
   <h5 style="margin-left:10px">Search for a shop or place</br> in Eldorado Park and click/touch</br> for details</h5></br>
@@ -643,8 +673,11 @@ people (19,7%) living in this province.</h5><section id="workb" name="Work Bench
 <h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center">  With a population of approximately 1,23 million people (2,1%), Northern
 Cape remains the province with the smallest share of the South African population.</h5>
 <h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center"> The infant mortality rate for 2018 is estimated at 36,4 per 1 000 live births.</h5>
-</br>
-
+<br />
+<h5>Click/touch on the link below for all the stats from Stats SA.
+<br /><br />
+<a href="http://www.statssa.gov.za">www.statssa.gov.za</a></h5>
+<br />
 <div style=" border:1px solid #F90; background-color:#F60; border-radius:10px; padding-bottom:3px"><h8>   Work Bench</h8></div>
 <h5>
   <p>This work bench will prepare you for your job search. Here are some of the websites you can visit and register.
