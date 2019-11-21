@@ -20,6 +20,7 @@
 	background-color: #FF9900;
 	padding: 15px;
 	text-align: center;
+	opacity: 0.8;
     }
 	.button {
 	background-color: #F90;
@@ -63,11 +64,11 @@
   <style>
   
 .sidenav {
-	height: 75%;
+	height: 80%;
 	width: 280px;
 	position: fixed;
-	z-index: 99;
-	top: 140px;
+	z-index: 1;
+	top: 130px;
 	left: 0;
 	background-color: #eee;
 	overflow-x: hidden;
@@ -165,6 +166,21 @@ html {
   border-radius: 10px;
   width: 100%;
 }
+.contain_1 {
+  position: relative;
+  font-family: Arial;
+}
+.text-block_1 {
+  position: absolute;
+  opacity:0.6;
+  top: 0%;
+  left: 0%;
+  background-color: #f60;
+  color: #FFF;
+  padding: 5px;
+  border-radius: 10px;
+  width: 100%;
+}
 </style>
 <style> 
 .fixed-bg {
@@ -176,39 +192,69 @@ html {
 }
 </style>
 <style>
-
-.bar1, .bar2, .bar3 {
-  width: 25px;
-  height: 3px;
-  background-color: #667;
-  margin: 3px 0;
-  transition: 0.4s;
-}
-
-.change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-4px, 4px);
-  transform: rotate(-45deg) translate(-4px, 4px);
-}
-
-.change .bar2 {opacity: 0;}
-
-.change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-4px, -5px);
-  transform: rotate(45deg) translate(-4px, -5px);
+#loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('images/grid.svg') 50% 50% no-repeat rgb(249,249,249);
 }
 </style>
-</head>
+<style>
+.button_1 {
+  background-color: #f90;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 3px;
+  margin: 7px 13px 5px 3px;
+  width: 40px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
 
-<script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
-</script>
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
-</script>
+.button_1:after {
+	content: "";
+	background: #fff;
+	display: block;
+	position: absolute;
+	padding-top: 300%;
+	padding-left: 350%;
+	margin-left: -20px!important;
+	margin-top: -120%;
+	opacity: 0;
+	transition: all 0.8s
+}
+
+.button_1:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+</style>
+
+<style>
+img {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 100%; /* Set a small width */
+}
+
+/* Add a hover effect (blue shadow) */
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+</style>
+
+</head>
 					<script type="text/javascript">
 					$(window).load(function() {
 					    $("#flexiselDemo3").flexisel({
@@ -265,7 +311,24 @@ function scrollFunction() {
   }
 }
 </script>
+<script type="text/javascript">
+        $(window).load(function () {
+
+            $("#loader").fadeOut("slow");
+
+        })
+    </script>
+    
+
 <body data-spy="scroll" data-target=".navbar" data-offset="50" class="fixed-bg">
+<div id="loader" style="color:#000"><h3 style="position:fixed; left:50%; top:50%">Loading<h3>
+</br>
+<noscript>
+      <div class="alert alert-danger" style="padding:10px; margin:0px; font-size:16px" align="center">
+    <strong>Javascript disabled! </strong> Enable Javascript for the best website experience.
+  </div>
+    </noscript>
+</div>
 <div class="container-fluid" style="background:#FFF; padding-left:3px; padding-right:3px">
 <ul id="flexiselDemo3">
 					    <li>
@@ -283,7 +346,7 @@ function scrollFunction() {
 					    <li>
 					    	<div class="latest-news-grid">
 					    		<h3 align="center">Did you know?</h3>
-					    		<p align="center">Unless food is mixed with saliva you can't taste it.</p>
+					    		<p align="center">Without saliva you can't taste anything.</p>
 					    	</div>
 					    </li>
 					    <li>
@@ -320,16 +383,9 @@ function scrollFunction() {
   </div>
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50" style="z-index: 50">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" onclick="changex(this)">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
+      <button type="button" class="navbar-toggle button_1" data-toggle="collapse" data-target="#myNavbar">
+  <div class="fa fa-bars"></div>
       </button>
-<script>
-function changex(x) {
-  x.classList.toggle("change");
-}
-</script>
       
      <div style="float:left"><svg width="170" height="50">
   <defs>
@@ -359,14 +415,24 @@ function changex(x) {
 <a href="https://twitter.com/eldobuzz" class="fa fa-twitter" style="padding:5px; text-decoration:none"></a></div>
 </div>
   <div align="center" class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right mr-auto">
+        <li><a class="button" href="#event">Events</a></li>
         <li><a class="button" href="#directions">Directions</a></li>
         <li><a class="button" href="#workb">Work Bench</a></li>
-        <li><a class="button" href="#latest">Latest News</a></li>
+        <li><a class="button" href="#latest">Eldo's News</a></li>
         <li><a class="button" href="#emnum">Emergency #</a></li>
       </ul>
+      
+<script>
+   $('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+}); 
+    </script>
   </div>
 </nav>
+
+
+
 
 <div class="modal fade" id="myModal">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -415,11 +481,12 @@ function changex(x) {
       </div>
 </div>
 <div class="container-fluid">
+
   <div class="row">
   
   <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn fa fa-times-circle" onclick="closeNav()" title="Close Quick Search" style="font-size:27px"></a>
-  <div align="center" style=" margin-top: 40px"><h3 style="color:#F90; margin-left: 10px">Quick Search</h3></br>
+  <div align="center" style=" margin-top: 40px">
   <h5 align="center">
   <input type='text' id='myInput' placeholder="Search list..." title="Type in a shop or place" onkeyup="myFunction()"/>
   <script>
@@ -453,175 +520,175 @@ function myFunction() {
 
       <h3 align="center" style="padding-left:10px">Ext 5 Shoprite</h3></div>
   <div style="margin-left:-40px"><ul id="myUL" class="nav nav-pills nav-stacked">
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><h5>Shoprite Centre</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Shoprite Centre</h5></a></li>
         <div id="collapse1" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>-
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><h5>Central Hardware</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Central Hardware</h5></a></li>
         <div id="collapse2" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 2528
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><h5>Shereen’s Curry Den</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Shereen’s Curry Den</h5></a></li>
         <div id="collapse3" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 3371
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><h5>M.S. Hair Health & Beauty Boutique</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">M.S. Hair Health & Beauty Boutique</h5></a></li>
         <div id="collapse4" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 6063
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><h5>Park Video</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Park Video</h5></a></li>
         <div id="collapse5" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>081 321 4883
         </p>
       </div>
-      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><h5>Badac Meat Market</h5></a></li>
+      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Badac Meat Market</h5></a></li>
         <div id="collapse6" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>081 320 3357
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse7"><h5>Aushe’ & Ashne’s Unisex</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse7"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Aushe’ & Ashne’s Unisex</h5></a></li>
         <div id="collapse7" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 5771
         </p>
       </div>
-      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse8"><h5>Ts Pets Paradise</h5></a></li>
+      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse8"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Ts Pets Paradise</h5></a></li>
         <div id="collapse8" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 079 6568
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse9"><h5>Noor Optical Optometrist</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse9"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Noor Optical Optometrist</h5></a></li>
         <div id="collapse9" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 4403
         </p>
       </div>
-      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse10"><h5>Fritz Bros Drycleaners</h5></a></li>
+      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse10"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Fritz Bros Drycleaners</h5></a></li>
         <div id="collapse10" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>082 742 6546
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse11"><h5>Shaheeds Fast Foods</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse11"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Shaheeds Fast Foods</h5></a></li>
         <div id="collapse11" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 2133
         </p>
       </div>
-      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse12"><h5>Caroline’s Hair & Beauty</h5></a></li>
+      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse12"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Caroline’s Hair & Beauty</h5></a></li>
         <div id="collapse12" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 3525
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse13"><h5>Eldomed Pharmacy</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse13"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Eldomed Pharmacy</h5></a></li>
         <div id="collapse13" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 3441
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse14"><h5>Gifts & Spices</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse14"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Gifts & Spices</h5></a></li>
         <div id="collapse14" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 1946
         </p>
       </div>
-      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse15"><h5>Maleeha’s Food Junxion & Pizza Den</h5></a></li>
+      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse15"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Maleeha’s Food Junxion & Pizza Den</h5></a></li>
         <div id="collapse15" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>083 546 4542
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse16"><h5>Gito’s Sweet Wholesalers</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse16"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Gito’s Sweet Wholesalers</h5></a></li>
         <div id="collapse16" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 5816
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse17"><h5>Riaz Supermeat Centre</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse17"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Riaz Supermeat Centre</h5></a></li>
         <div id="collapse17" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Sirkel Drive Ext 5 Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 30px; float:left"></a>(011) 945 4786/6786
         </p>
       </div>
       <h3 align="center">Ext 6 Crystal Mall</h3>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse18"><h5>OK Grocer</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse18"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">OK Grocer</h5></a></li>
         <div id="collapse18" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Cavendish and Goerge Elliot</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 0038
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse19"><h5>Jimmy’s Killer Fish & Chips</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse19"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Jimmy’s Killer Fish & Chips</h5></a></li>
         <div id="collapse19" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Cavendish and Goerge Elliot</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 046 9497
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse20"><h5>Nice eyes Optometrist</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse20"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Nice eyes Optometrist</h5></a></li>
         <div id="collapse20" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Cavendish and Goerge Elliot</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 2482
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse21"><h5>Salon Glitter Ladies</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse21"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Salon Glitter Ladies</h5></a></li>
         <div id="collapse21" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Cavendish and Goerge Elliot</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>073 439 6960
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse22"><h5>Ola Mexicanos Chick’n Pizza</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse22"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Ola Mexicanos Chick’n Pizza</h5></a></li>
         <div id="collapse22" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Cavendish and Goerge Elliot</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 2477
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse23"><h5>Health Care Pharmacy</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse23"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Health Care Pharmacy</h5></a></li>
         <div id="collapse23" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Cavendish and Goerge Elliot</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 4329
         </p>
       </div>
-         <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse24"><h5>Chilliken</h5></a></li>
+         <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse24"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Chilliken</h5></a></li>
         <div id="collapse24" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Cavendish and Goerge Elliot</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 073 5399
         </p>
       </div>
-      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse25"><h5>JJ’s Roof top</h5></a></li>
+      <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse25"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">JJ’s Roof top</h5></a></li>
         <div id="collapse25" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Cavendish and Goerge Elliot</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>063 610 0483
         </p>
       </div>
       <h3 align="center">Ext 2 Spar</h3>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse26"><h5>Spar Ext 2</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse26"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Spar Ext 2</h5></a></li>
         <div id="collapse26" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Witteberg Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>-
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse27"><h5>Just Jay Auto Paints</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse27"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Just Jay Auto Paints</h5></a></li>
         <div id="collapse27" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Witteberg Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>084 641 4017
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse28"><h5>Abu’s busy Corner</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse28"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Abu’s busy Corner</h5></a></li>
         <div id="collapse28" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Witteberg Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>074 388 7893
         </p>
       </div>
-       <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse29"><h5>Desirable Homes</h5></a></li>
+       <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse29"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Desirable Homes</h5></a></li>
         <div id="collapse29" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Witteberg Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 1095
         </p>
       </div>      
       <h3 align="center">Ext 9 Spar</h3>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse30"><h5>Spar Ext 9</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse30"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Spar Ext 9</h5></a></li>
         <div id="collapse30" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">-</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>-
         </p>
       </div>
       <h3 align="center">Ext 3</h3>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse31"><h5>Shaheems Fast Food & Muslim Meats</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse31"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Shaheems Fast Food & Muslim Meats</h5></a></li>
         <div id="collapse31" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">338 Main Road Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 039 5642
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse32"><h5>GL Insurance Brokers</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse32"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">GL Insurance Brokers</h5></a></li>
         <div id="collapse32" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Main & Kremetart Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 5151
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse33"><h5>Edo’s Medical Centre</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse33"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Edo’s Medical Centre</h5></a></li>
         <div id="collapse33" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Main & Kremetart Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 2737
         </p>
       </div>
       <h3 align="center">Ext 1</h3>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse34"><h5>Buccaneer Motor Spares</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse34"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Buccaneer Motor Spares</h5></a></li>
         <div id="collapse34" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">3 Buccaneer Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 1949
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse35"><h5>Concord Tyres</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse35"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Concord Tyres</h5></a></li>
         <div id="collapse35" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Cnr Concord & Silver Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 5737
         </p>
       </div>
-       <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse36"><h5>Pinkies Car Wash</h5></a></li>
+       <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse36"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Pinkies Car Wash</h5></a></li>
         <div id="collapse36" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">6 Buccaneer Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>082 556 5054
         </p>
       </div>
       <h3 align="center">Old Eldo's Jamila's Centre</h3>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse37"><h5>Surayas Bakery</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse37"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Surayas Bakery</h5></a></li>
         <div id="collapse37" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Silver Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>061 076 2244
         </p>
       </div>
-       <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse38"><h5>Dawood Halaal Butchery</h5></a></li>
+       <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse38"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Dawood Halaal Butchery</h5></a></li>
         <div id="collapse38" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Silver Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 342 4353
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse39"><h5>KPM Signs</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse39"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">KPM Signs</h5></a></li>
         <div id="collapse39" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Silver Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>076 288 7217
         </p>
       </div>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse40"><h5>Shabier Barber Shop</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse40"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Shabier Barber Shop</h5></a></li>
         <div id="collapse40" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Silver Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>072 171 7515
         </p>
       </div>
       <h3 style="color:#F60" align="center">Other Centres</h3>
       <h3 align="center">NGO's & NPO's</h3>
-        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse41"><h5>Ldeca Community Assistance</h5></a></li>
+        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapse41"><h5 class="footer" style="border:1px solid #ccc; border-radius:5px; padding:2px">Ldeca Community Assistance</h5></a></li>
         <div id="collapse41" class="panel-collapse collapse"><p style="padding:5px; margin:0px" align="center">Silver Street Eldorado Park</p><p style="padding:0px 5px 5px 5px; margin:0px"><a class="fa fa-phone" style=" font-size:16px; color:#f90; padding: 0px 10px 0px 40px; float:left"></a>(011) 945 7045
         </p>
       </div>
@@ -629,33 +696,43 @@ function myFunction() {
       </ul>
       </div>
 </div>
-<span style=" position:fixed; left:7px; top:230px;font-size:30px;cursor:pointer; text-decoration:none; border:3px solid #667; padding:1px 3px 3px 3px; border-radius:5px" onclick="openNav()"><a class="fa fa-bars" title="Open Quick Search" style="text-decoration:none"></a></span>
+<span style=" position:fixed; left:7px; top:230px;font-size:30px;cursor:pointer; text-decoration:none; border:3px solid #667; padding:1px 2px 2px 2px; border-radius:5px" onclick="openNav()"><a class="fa fa-bars" title="Open Quick Search" style="text-decoration:none"></a></span>
   
   
   
     <div id="main" class=" col-sm-12" style="padding-left:10px; margin-top:10px; background-color:#fff">
     <div class="col-sm-8">
-    <noscript>
-      <div class="alert alert-danger" style="padding:10px; margin:0px; font-size:16px" align="center">
-    <strong>Javascript disabled! </strong> Enable Javascript for the best website experience.
-  </div>
-    </noscript>
-    <h5><h7 style="padding-left:6px">Historical facts</h7><i style="float:right; padding-top:3px; padding-right:15px; color:#F90; font-size:26px" class="fa fa-book"></i><br>
+    
+    <h5><h7 style="padding-left:6px">Historical facts</h7><br>
     <p style="padding:5px">Eldorado Park was developed into a residential area by the then Department of Community Development primarily to accommodate members of the colored race in Terms of the Group Areas Act and to resettle families of color displaced from area declared for whites only.</br></br>  
     Initially the administration of housing estates in Eldorado Park Proper, Ext 1, 3 and 8 was vested in the authority of Community Development and when Ext 2, 4, 6 and 7 was developed through funds advanced by the National Housing Commission, these properties were devolved to the City of Johannesburg areas further developed by the City through loans were Ext 9, 10 infill scheme and more recently the Delft Scheme.    </br></br>
      The properties consist of various typologies ranging from Economic, Lower and Sub-economic freestanding houses, semi-detached houses totalling approximately 16000 units and 1000 row houses, the approximately 4000 flats range from bachelor, 1-bedroom, 2-bedroom and 3-bedroom duplex. In addition to this the area is further populated by families in occupation of backyard shacks, resulting in an estimated population of 250 000 persons.    <section id="directions" name="directions"></section>
      <p style="padding:0px 5px 5px 5px">The Unemployment level in the area is estimated at 35%, the majority being the youth income levels ranges from low to medium with very few households earning high income. The primary level of education is matric with very few being able to provide unto tertiary level due to affordability. The high level of unemployment has also impacted directly towards increasingly high levels of crime and substance abuse.
     </h5></p></p>
-    <div class="footer" style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:12px" align="center">"Any experience can be transformed into something of value." - Vash Young</div><br><h7 style="padding-left:6px">Eldo's Directions</h7><i style="float:right; padding-top:3px;padding-right:15px;color:#F90; font-size:26px" class="fa fa-arrows"></i><br>
+    <div style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:12px" align="center">"Any experience can be transformed into something of value." - Vash Young</div><br><h7 style="padding-left:6px">Eldo's Directions</h7><br>
     <p class="w3-card-8" style="border-radius:10px"><a href="images/01.png" download="Eldo_s_map"><div class="contain"><img class="img-responsive" src="images/01.png" width="100%" height="100%" style="border-radius:10px"><div class="text-block"><strong>
     <p align="center" style=" font-size:36px;padding:5px; margin:0px">CLICK / TOUCH <br /> TO DOWNLOAD</p></strong>
   </div></div></a></p>
     <section id="latest" name="latest"></section>
-<h5 style="padding:5px">Click/Touch on the image to download it. The image will explain where are the differnt extentions, petrol stations, etc. are in Eldorado Park. <a href="https://www.google.com/maps/place/Eldorado+Park,+Soweto,+1811/@-26.2922366,27.8685264,13z/data=!3m1!4b1!4m5!3m4!1s0x1e95a7b24aeb9cd5:0x87f9f7ebc23003dc!8m2!3d-26.2894207!4d27.8956062">Google Maps shortcut to Eldorado Park</a></h5><br><div class="footer" style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:12px" align="center">"Seek first to understand, then to be understood." - Stephen Covey</div><br />
-    <h7 style="padding-left:6px">Latest News</h7><i style="float:right; padding-top:1px;padding-right:15px; color:#F90; font-size:26px" class="fa fa-envelope-o"></i><br><br><div class="w3-card-8" id="widgetmain" style="text-align: left; overflow-y: auto; overflow-x: hidden; width: 100%; background-color: #transparent;"><div id="rsswidget" style="height:650px;"><iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1499773809925&amp;x=http%3A%2F%2Fnews.google.com%2Fnews%3Fned%3Dus%26topic%3Dh%26output%3Drss&amp;w=200&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=FF6600&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:100%; height:650px;" id="rssOutput">Reading RSS Feed ...</iframe></div><div style="text-align:right;margin-bottom:0;border-top:1px solid #333333;" id="widgetbottom"><span style="font-size:70%"><a href="http://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span></div></div>
+<h5 style="padding:5px">Click/Touch on the image to download it. The image will explain where are the differnt extentions, petrol stations, etc. are in Eldorado Park. <a href="https://www.google.com/maps/place/Eldorado+Park,+Soweto,+1811/@-26.2922366,27.8685264,13z/data=!3m1!4b1!4m5!3m4!1s0x1e95a7b24aeb9cd5:0x87f9f7ebc23003dc!8m2!3d-26.2894207!4d27.8956062">Google Maps shortcut to Eldorado Park</a></h5><br><div style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:12px" align="center">"Seek first to understand, then to be understood." - Stephen Covey</div><br />
+    <h7 style="padding-left:6px">Eldo's News</h7><br><br>
     
-</br>
+    <a target="_blank" href="images/gallery/02(1).jpg"><div class="contain">
+  <img style="border-radius:10px" src="images/gallery/02(1).jpg" alt="Stadium"><div class="text-block"><strong>
+    <p align="center" style=" font-size:26px;padding:5px; margin:0px">CLICK / TOUCH  TO VIEW</p></strong>
 </div>
+<div class="text-block_1"><strong>
+    <p align="center" style=" font-size:26px;padding:5px; margin:0px">EXT 6 STADIUM ELDO'S</p></strong>
+</div>
+
+</div></a>
+<br />
+<h5 style="padding:5px">This is just one of the days at the Ext 6 Stadium  where you can come and see the youngsters (on Saturdays) and adult (on Sunday) come play football and enjoy themselves in a day of funfilled activity. Remember, thier physical address will be available in the events section of this website.</h5>
+<br />
+<div style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:12px" align="center">"Keep your fears to yourself, but share your courage with others." - Robert Louis Stevenson</div>
+
+</div>
+
 <div class=" col-sm-4" style="color: #667; background: #eee; border-radius:10px" align="center">
 <div style=" border:1px solid #F90; background-color:#F60; border-radius:10px; padding-bottom:3px"><h8>   Statistics</h8></div>
 <p>Here are some stats from Stats SA 2018.
@@ -666,17 +743,21 @@ function myFunction() {
 <h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center"> Approximately 8,5% (4,89 million) is 60 years
 or older.</h5>
 <h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center"> Life expectancy at birth for 2018 is estimated at 61,1 years for males and 67,3 years for females.</h5>
+<section id="event" name="event"></section>
 <h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center"> Gauteng comprises the largest share of the South African population, with approximately 14,7 million people
 (25,4%) living in this province</h5>
 <h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center"> KwaZulu-Natal is the province with the second largest population, with 11,4 million
-people (19,7%) living in this province.</h5><section id="workb" name="Work Bench"></section>
-<h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center">  With a population of approximately 1,23 million people (2,1%), Northern
-Cape remains the province with the smallest share of the South African population.</h5>
-<h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center"> The infant mortality rate for 2018 is estimated at 36,4 per 1 000 live births.</h5>
+people (19,7%) living in this province.</h5>
 <br />
 <h5>Click/touch on the link below for all the stats from Stats SA.
 <br /><br />
 <a href="http://www.statssa.gov.za">www.statssa.gov.za</a></h5>
+<br />
+
+<div style=" border:1px solid #F90; background-color:#F60; border-radius:10px; padding-bottom:3px"><h8>   Events</h8></div><br />
+<h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px">1st annual all white toaties, 27 Oct 19 Don Mateman Hall, pre-sale: R50 door: R80.<br /><div align="center"><a class="fa fa-phone" style=" font-size:18px; color:#f90; padding: 5px 10px 0px 0px; text-decoration:none"></a>011 945 6565</div></h5>
+<h3 style="color: #F60; padding:5px ; border: 1px solid #f90; border-radius:10px" align="center">Sports Events</h3><section id="workb" name="Work Bench"></section>
+<h5 style="border: 1px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px" align="center">Every Saturday and Sunday thier are footbal matches played on the three pitches available<br /><div align="center"><a class="fa fa-compass" style=" font-size:22px; color:#f90; padding: 5px 10px 0px 0px; text-decoration:none"></a>Sirkel Drive Ext 5 Eldorado Park</div></h5>
 <br />
 <div style=" border:1px solid #F90; background-color:#F60; border-radius:10px; padding-bottom:3px"><h8>   Work Bench</h8></div>
 <h5>
@@ -711,12 +792,15 @@ Cape remains the province with the smallest share of the South African populatio
 <a href="https://www.puffandpass.co.za">www.puffandpass.co.za</a>
 </p>
 </h5>
+
+
+
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 align="center" class="panel-title"><a data-toggle="collapse" class="button" data-parent="#accordion" href="#collapse_0" style="color: #FFF; padding: 5px 5px 5px 5px; border: 1px solid #f60; border-radius: 10px; transition: all 0.5s ease; margin-bottom: 20px; text-decoration: none; width: 100%; background-color:#f60">
-          For emergency numbers</br> click here!!!</a>
-        </h3>
+        <a data-toggle="collapse" class="button" data-parent="#accordion" href="#collapse_0" style="color: #665; padding: 10px 5px 10px 5px; border: 1px solid #f60; border-radius: 10px; transition: all 0.5s ease; margin-bottom: 20px; text-decoration: none; width: 100%; background-color: #eee"><h3 align="center" class="panel-title footer" style="border-radius:10px;background-color:#eee;border: 1px solid #ccc; padding:10px 0px 10px 0px">
+          For emergency numbers</br> click here!!!</h3>
+          </a>
       </div>
       <div id="collapse_0" class="panel-collapse collapse">
         <div class="panel-body">
@@ -730,6 +814,6 @@ Cape remains the province with the smallest share of the South African populatio
     </div>
 </div></div></div></div>
 <a title="Go to top" href="#" onclick="topFunction()" class="fa fa-arrow-circle-o-up" id="myBtn" style="position:fixed; bottom:10px; right:15px; display: none; cursor: pointer; z-index: 99; font-size:36px; text-decoration:none"></a><div style="padding:5px"></div>
-<footer>"Keep your fears to yourself, but share your courage with others." - Robert Louis Stevenson</br></br> &copy; eldobuzz | All Rights Reserved 2019 | <a href="disclaimer.png" class="button" style="background-color:#667; padding:3px 6px 3px 6px; margin:0px 5px 0px 0px; text-decoration:none">Disclaimer</a></footer></div>
+<footer> &copy; eldobuzz | All Rights Reserved 2019 | <a href="disclaimer.png" class="footer" style="background-color:#667; padding:3px 6px 3px 6px; margin:0px 5px 0px 0px; text-decoration:none; border-radius:10px">Disclaimer</a></footer></div></div>
 </body>
 </html>
