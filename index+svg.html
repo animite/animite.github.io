@@ -12,16 +12,7 @@
   <link rel="SHORTCUT ICON" href="images/pic.png" />
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-  
-   
-   <style>
-body {
-  background-image: url("images/01.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-</style>
-   
+   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
    <style>  
     .navbar {
     }
@@ -108,7 +99,7 @@ body {
 	top: 0px;
 	right: 0px;
 	font-size: 36px;
-	z-index:99
+	z-index: 99
 }
 
 @media screen and (max-height: 450px) {
@@ -287,7 +278,6 @@ img:hover {
   background-color: #667;
 }
 </style>
-
 <style> 
 #snackbar {
   width: 310px;
@@ -328,7 +318,6 @@ img:hover {
   100% {background-color:#667; left:-300px; top:45.2%;}
 }
 </style>
-
 <style>
 #animation_1 {
   background-color: #f90;
@@ -365,6 +354,32 @@ img:hover {
 
 
 </head>
+					<script type="text/javascript">
+					$(window).load(function() {
+					    $("#flexiselDemo3").flexisel({
+					        visibleItems: 3,
+					        animationSpeed: 1000,
+					        autoPlay: true,
+					        autoPlaySpeed: 6000,            
+					        pauseOnHover: true,
+					        enableResponsiveBreakpoints: true,
+					        responsiveBreakpoints: { 
+					            portrait: { 
+					                changePoint:480,
+					                visibleItems: 1
+					            }, 
+					            landscape: { 
+					                changePoint:640,
+					                visibleItems: 1
+					            },
+					            tablet: { 
+					                changePoint:768,
+					                visibleItems: 2
+					            }
+					        }
+					    });
+					});
+					</script>
                     
 <script>
 function openNav() {
@@ -412,12 +427,62 @@ function topFunction() {
   </div>
     </noscript>
     </div>
-<div class="container-fluid" style="background: inherit; padding-left:3px; padding-right:3px; padding:10px">
+<div class="container-fluid" style="background:#FFF; padding-left:3px; padding-right:3px">
 
-
+<h3 id="grad_3" align="center" style="color:#FFF; padding:5px 5px 5px 5px; margin:0px 0px 0px 0px; background-color: #FC0">Did you know?</h3>
+<ul id="flexiselDemo3">
+					    <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">85% of plant life is found in the ocean.</p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">August has the highest percentage of births.</p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">Without saliva you can't taste anything.</p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">An ostrich's eye is bigger than its brain.</p>
+					    	</div>
+					    </li>
+                        <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">Lemons contain more sugar than strawberries.</p>
+					    	</div>
+					    </li>
+                        <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">8% of people have an extra rib on thier rib cage.</p>
+					    	</div>
+					    </li>
+                        <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">The Hawaiian alphabet has 13 letters.</p>
+					    	</div>
+					    </li>
+                        <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">The average person falls asleep in 7 minutes.</p>
+					    	</div>
+					    </li>
+  </ul>
   </div>
-<nav class="navbar navbar-inverse" data-spy="affix" style="z-index: 299">
-    <div class="navbar-header">
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50" style="z-index: 299">
+  <div class="navbar-header">
       <button id="animation_1" type="button" class="navbar-toggle button_1" data-toggle="collapse" data-target="#myNavbar">
   <div class="fa fa-bars"></div>
       </button>
@@ -438,6 +503,7 @@ function topFunction() {
       </feMerge>
     </filter>
   </defs>
+  <rect x="0" y="0" width="270" height="50" fill="#f60" />
   <g filter="url(#MyFilter)">
     <path fill="none" stroke="#F90" stroke-width="5" d="M40,46 C5,46 5,5 50,5 L80,5 C100,5 5,5 40,46 L80,46 C80,46 100,5 80,5  " />
     <text fill="#DDD" stroke="grey" font-size="32" x="21" y="36">eldobuzz</text>
@@ -445,7 +511,7 @@ function topFunction() {
   Sorry, your browser does not support SVG.  
 </svg>
 </div>
-<div id="animation_1" style="float:left; padding:3px; padding-bottom:0px; padding-top:3px; border:3px solid #999; border-radius:10px; margin-top:4px ">
+<div id="animation_1" style="float: left; padding: 5px; padding-bottom: 0px; padding-top: 3px; border: 3px solid #999; border-radius: 10px; margin-top: 3px">
 <a href="https://twitter.com/eldobuzz" class="fa fa-twitter" style="padding:5px; text-decoration:none"></a></div>
 </div>
   <div align="center" class="collapse navbar-collapse" id="myNavbar">
@@ -690,8 +756,6 @@ function myFunction() {
 
 <div id="snackbar"><strong>Search Eldorado Park for a shop/place</strong>
 </div>
-
-
   
     <div id="main" class=" col-sm-12" style="background-color: transparent; margin: 25px 5px 5px 5px; border-radius: 10px;">
     <div class="col-sm-8">
@@ -810,10 +874,16 @@ people (19,7%) living in this province.</h5>
 
 <div style="color:#FFF; padding:0px 5px 5px 5px; font-size:14px; margin-top:5px" align="center"> &copy; eldobuzz | All Rights Reserved 2019</div><div style="margin-top:6px"><a class="footer1" href="disclaimer.png" style="background-color:#667; padding:3px 6px 3px 6px; text-decoration:none; border-radius:10px">Disclaimer</a></div>
 
-<div style="float:left; color:#F90; padding: 0px 10px 10px 10px">Sean Adams 860923 0744245607</div>
+<div style="float:left; color:#F90; padding: 0px 10px 10px 10px">Sean Adams 860923</div>
 
 </footer></div></div>
 
+<script src="js/velocity.min.js"></script>
+<script src="js/svgm.js"></script>
+<svg id="svg-playground" height="50%" width="50%">
+
+    <circle class="simple-circle" cx="50" cy="50" r="100" stroke="transparent" stroke-width="3" fill="#fb0" /></svg>
+    
     
 
 </body>

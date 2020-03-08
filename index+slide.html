@@ -12,7 +12,7 @@
   <link rel="SHORTCUT ICON" href="images/pic.png" />
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-  
+   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
    
    <style>
 body {
@@ -365,6 +365,32 @@ img:hover {
 
 
 </head>
+					<script type="text/javascript">
+					$(window).load(function() {
+					    $("#flexiselDemo3").flexisel({
+					        visibleItems: 3,
+					        animationSpeed: 1000,
+					        autoPlay: true,
+					        autoPlaySpeed: 6000,            
+					        pauseOnHover: true,
+					        enableResponsiveBreakpoints: true,
+					        responsiveBreakpoints: { 
+					            portrait: { 
+					                changePoint:480,
+					                visibleItems: 1
+					            }, 
+					            landscape: { 
+					                changePoint:640,
+					                visibleItems: 1
+					            },
+					            tablet: { 
+					                changePoint:768,
+					                visibleItems: 2
+					            }
+					        }
+					    });
+					});
+					</script>
                     
 <script>
 function openNav() {
@@ -412,11 +438,61 @@ function topFunction() {
   </div>
     </noscript>
     </div>
-<div class="container-fluid" style="background: inherit; padding-left:3px; padding-right:3px; padding:10px">
+<div class="container-fluid" style="background:#FFF; padding-left:3px; padding-right:3px">
 
-
+<h3 id="grad_3" align="center" style="color:#FFF; padding:5px 5px 5px 5px; margin:0px 0px 0px 0px; background-color: #FC0">Did you know?</h3>
+<ul id="flexiselDemo3">
+					    <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">85% of plant life is found in the ocean.</p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">August has the highest percentage of births.</p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">Without saliva you can't taste anything.</p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">An ostrich's eye is bigger than its brain.</p>
+					    	</div>
+					    </li>
+                        <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">Lemons contain more sugar than strawberries.</p>
+					    	</div>
+					    </li>
+                        <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">8% of people have an extra rib on thier rib cage.</p>
+					    	</div>
+					    </li>
+                        <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">The Hawaiian alphabet has 13 letters.</p>
+					    	</div>
+					    </li>
+                        <li>
+					    	<div class="latest-news-grid">
+					    		
+					    		<p align="center">The average person falls asleep in 7 minutes.</p>
+					    	</div>
+					    </li>
+  </ul>
   </div>
-<nav class="navbar navbar-inverse" data-spy="affix" style="z-index: 299">
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50" style="z-index: 299">
     <div class="navbar-header">
       <button id="animation_1" type="button" class="navbar-toggle button_1" data-toggle="collapse" data-target="#myNavbar">
   <div class="fa fa-bars"></div>
