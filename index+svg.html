@@ -278,7 +278,7 @@ img:hover {
 #mySidenav_2 a {
 	position: fixed;
 	left: -11px;
-	top: 45%;
+	top: 45.22%;
 	transition: 0.3s;
 	padding: 15px;
 	width: 45px;
@@ -302,14 +302,15 @@ img:hover {
 
 <style> 
 #snackbar {
-	width: 310px;
+	width: 305px;
 	height: 47px;
 	position: fixed;
 	right: 2200px;
 	border-radius: 10px;
-	padding: 15px 10px 10px 30px;
+	padding: 16px 10px 10px 35px;
 	z-index: 99;
 	opacity: 0.8;
+	font-size: 13.5px;
 	background-repeat: no-repeat;
 	background-image: url('images/prev.png');
 	background-position: 2px 5px;
@@ -324,20 +325,20 @@ img:hover {
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example_1 {
- 0%   {background-color:#667; left:-300px; top:45.35%;}
-  25%  {background-color:#667; left:30px; top:45.35%;}
-  50%  {background-color:#667; left:30px; top:45.35%;}
-  75%  {background-color:#f60; left:30px; top:45.35%}
-  100% {background-color:#f60; left:-300px; top:45.35%;}
+   0%   {background-color:#667; left:-300px; top:45.48%;}
+  25%  {background-color:#667; left:30px; top:45.48%;}
+  50%  {background-color:#667; left:30px; top:45.48%;}
+  75%  {background-color:#f60; left:30px; top:45.48%}
+  100% {background-color:#f60; left:-300px; top:45.48%;}
 }
 
 /* Standard syntax */
 @keyframes example_1 {
- 0%   {background-color:#667; left:-300px; top:45.35%;}
-  25%  {background-color:#667; left:30px; top:45.35%;}
-  50%  {background-color:#667; left:30px; top:45.35%;}
-  75%  {background-color:#f60; left:30px; top:45.35%}
-  100% {background-color:#f60; left:-300px; top:45.35%;}
+   0%   {background-color:#667; left:-300px; top:45.48%;}
+  25%  {background-color:#667; left:30px; top:45.48%;}
+  50%  {background-color:#667; left:30px; top:45.48%;}
+  75%  {background-color:#f60; left:30px; top:45.48%}
+  100% {background-color:#f60; left:-300px; top:45.48%;}
 }
 </style>
 
@@ -397,7 +398,7 @@ function closeNav() {
     </script>
        
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target=".navbar" data-offset="7">
 <div id="loader" style="color:#000"><h3 style="position:fixed; left:50%; top:50%">Loading<h3>
 </br>
 <noscript>
@@ -407,7 +408,7 @@ function closeNav() {
     </noscript>
     </div>
 <div class="container-fluid" style=" padding-left:3px; padding-right:3px; padding:10px; opacity:0.01"></div>
-<nav class="navbar navbar-inverse" data-spy="affix" style="z-index: 299">
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="7" style="z-index: 299">
 <div style="float:right; padding:3px; padding-bottom:2px; border-radius:10px; margin-top:6px; margin-right:6px; background-color:#F90">
 <a href="#" title="To Top" class="fa fa-arrow-circle-up" style="padding:5px; text-decoration:none"></a></div>
   <div class="navbar-header">
