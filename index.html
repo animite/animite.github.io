@@ -26,11 +26,10 @@ ga('send', 'pageview');
    
    <style>
 body {
-	font-family:Arial, Helvetica, sans-serif;
-	 background-image: url("images/eldorado_park.png");
-  background-repeat: no-repeat;
+	font-family: Arial, Helvetica, sans-serif;
+	 background-image: url("images/eldorado_park_2.jpg");
+  background-repeat: repeat;
   background-attachment: fixed;
-  background-size:cover;
 }
 </style>
    
@@ -56,7 +55,7 @@ body {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 13px;
+	font-size: calc(13px + (15 - 13) * ((100vw - 1000px) / (1600 - 800)));
 	cursor: pointer;
 	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.4s;
@@ -81,9 +80,6 @@ body {
 }
 	 </style>
 <style>
-  body {
-	position: static;
-  }
   .affix {
       top:20px;
       width: 100%;
@@ -136,11 +132,6 @@ body {
 	right: 0px;
 	font-size: 36px;
 	z-index:99
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
 }
   </style>
   
@@ -206,7 +197,7 @@ html {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url('images/grid.svg') 50% 50% no-repeat rgb(249,249,249);
+    background: url('grid.svg') 50% 50% no-repeat rgb(249,249,249);
 }
 </style>
 <style>
@@ -251,15 +242,15 @@ html {
 
 <style>
 img {
-  border: 1px solid #ddd;
-  border-radius: 4px;  
-  padding: 5px;
-  width: 100%; 
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 5px;
+	width: 100%;
 }
 
 
 img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  box-shadow: 0 0 2px 1px #FFCC00;
 }
 </style>
 <style>
@@ -310,14 +301,15 @@ img:hover {
 }
 
 #about {
-  top: 20px;
+	padding:0px;
+	margin:0px;
   background-color: #667;
 }
 </style>
 
 <style> 
 #snackbar {
-	width: 305px;
+	width: 313px;
 	height: 47px;
 	position: fixed;
 	right: 2200px;
@@ -328,14 +320,14 @@ img:hover {
 	font-size: 13.5px;
 	background-repeat: no-repeat;
 	background-image: url('images/prev.png');
-	background-position: 2px 5px;
+	background-position: 2px 6px;
 	-webkit-animation-name: example_1; /* Safari 4.0 - 8.0 */
 	-webkit-animation-duration: 12s;
 	-webkit-animation-delay: 12s;
 	/* Safari 4.0 - 8.0 */
 	animation-name: example_1;
-	animation-duration: 12s;
-	animation-delay: 12s;
+	animation-duration: 10s;
+	animation-delay: 11s;
 }
 
 /* Safari 4.0 - 8.0 */
@@ -1455,10 +1447,11 @@ function myFunction() {
 
   <div id="mySidenav_2">
   <a title="Search for a shop or place" onclick="openNav()" id="about" class="fa fa-search"></a>
+  <div id="snackbar"><strong>Search Eldorado Park for a shop/place</strong>
+</div>
 </div>  
 
-<div id="snackbar"><strong>Search Eldorado Park for a shop/place</strong>
-</div>
+
 
 
   
@@ -1472,39 +1465,39 @@ function myFunction() {
      <p class="fade" style="padding:5px; margin:0px">The properties consist of various typologies ranging from Economic, Lower and Sub-economic freestanding houses, semi-detached houses totalling approximately 16000 units and 1000 row houses, the approximately 4000 flats range from bachelor, 1-bedroom, 2-bedroom and 3-bedroom duplex. In addition to this the area is further populated by families in occupation of backyard shacks, resulting in an estimated population of 250 000 persons.</p>    
      <p class="fade" style="padding:5px; margin:0px">The Unemployment level in the area is estimated at 35%, the majority being the youth income levels ranges from low to medium with very few households earning high income. The primary level of education is matric with very few being able to provide unto tertiary level due to affordability. The high level of unemployment has also impacted directly towards increasingly high levels of crime and substance abuse.<section id="directions" name="directions"></section>
     </p></h5></p>
-    <div class="fade" style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:12px;margin-right:3px" align="center">"Any experience can be transformed into something of value." - Vash Young</div><br><div style="background:#FFF; padding:10px; border-radius:10px; border: 2px solid #bbb; margin-right:3px"><h7  class="fade" style="padding-left:6px">Eldo's Directions</h7><br>
-    <p class="w3-card-8" style="border-radius:10px"><a href="images/eldorado_park.png" target="_blank"><div class="contain fade"><img class="img-responsive" src="images/eldorado_park.png" width="100%" height="100%" style="border-radius:10px"><div class="text-block"><strong>
-    <p align="center" style="font-size: 22px; padding: 5px; margin: 0px">CLICK / TOUCH <br /> TO VIEW</p></strong>
+    <div class="fade" style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:calc(15px + (19 - 15) * ((100vw - 1000px) / (1600 - 800)));margin-right:3px" align="center">"Any experience can be transformed into something of value." - Vash Young</div><br><div style="background:#FFF; padding:10px; border-radius:10px; border: 2px solid #bbb; margin-right:3px"><h7  class="fade" style="padding-left:6px">Eldo's Directions</h7><br>
+    <p class="w3-card-8" style="border-radius:10px"><a href="images/eldorado_park.jpg" target="_blank"><div class="contain fade"><img class="img-responsive" src="images/eldorado_park_thumb.jpg" width="100%" height="100%" style="border-radius:10px"><div class="text-block"><strong>
+    <p align="center" style="font-size: calc(22px + (36 - 20) * ((100vw - 1000px) / (1600 - 800))); padding: 5px; margin: 0px">CLICK / TOUCH <br /> TO VIEW</p></strong>
   </div></div></a></p>
     <section id="latest" name="latest"></section>
-<h5 class="fade" id="grad_2" style="padding:10px;border-radius:10px; background-color:#eee">Click/Touch on the image to view it. The image will explain where the differnt extentions, petrol stations, etc. are in Eldorado Park. You could use the street names to search for the address on googlemaps as directions.</h5></div><br><div class="fade" style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:12px;margin-right:3px" align="center">"Seek first to understand, then to be understood." - Stephen Covey</div><br /><div style="background:#FFF; padding:10px; border-radius:10px; border: 2px solid #bbb;margin-right:3px">
+<h5 class="fade" id="grad_2" style="padding:10px;border-radius:10px; background-color:#eee">Click/Touch on the image to view it. The image will explain where the differnt extentions, petrol stations, etc. are in Eldorado Park. You could use the street names to search for the address on googlemaps as directions.</h5></div><br><div class="fade" style="background-color: #F90;color:#FFF; padding:3px; border-radius:5px; font-size:calc(15px + (19 - 15) * ((100vw - 1000px) / (1600 - 800)));margin-right:3px" align="center">"Seek first to understand, then to be understood." - Stephen Covey</div><br /><div style="background:#FFF; padding:10px; border-radius:10px; border: 2px solid #bbb;margin-right:3px">
     <h7 class="fade" style="padding-left:6px">Eldo's Sports</h7><br><br>
     
     <div class="slideshow_2-container fade">
 
 <div class="mySlides_2 fade_2">
   <div class="numbertext_2">1 / 3</div>
-  <a target="_blank" href="images/gallery/02(1).jpg"><img src="images/gallery/thumbs/02(1)_lt.jpg" style="width:100%; padding:0px; margin:0px">
-  <div class="text-block"><strong>
-    <p align="center" style="font-size: 22px; padding: 5px; margin: 0px">CLICK / TOUCH <br /> TO VIEW</p></strong>
+  <a target="_blank" href="images/gallery/02(1).jpg"><img src="images/gallery/thumbs/02(1)_lt.jpg" style="width:100%; padding:5px; margin:0px">
+  <div class="text-block">
+    <p align="center" style="font-size: calc(22px + (36 - 20) * ((100vw - 1000px) / (1600 - 800))); padding: 5px; margin: 0px"><strong>CLICK / TOUCH <br /> TO VIEW EACH ONE</strong></p>
   </div>
   </a>
 </div>
 
 <div class="mySlides_2 fade_2">
   <div class="numbertext_2">2 / 3</div>
-  <a target="_blank" href="images/gallery/02(2).jpg"><img src="images/gallery/thumbs/02(2)_lt.jpg" style="width:100%;padding:0px; margin:0px">
+  <a target="_blank" href="images/gallery/02(2).jpg"><img src="images/gallery/thumbs/02(2)_lt.jpg" style="width:100%;padding:5px; margin:0px">
   <div class="text-block"><strong>
-    <p align="center" style="font-size: 22px; padding: 5px; margin: 0px">CLICK / TOUCH <br /> TO VIEW</p></strong>
+    <p align="center" style="font-size: calc(22px + (36 - 20) * ((100vw - 1000px) / (1600 - 800))); padding: 5px; margin: 0px">CLICK / TOUCH <br /> TO VIEW EACH ONE</p></strong>
   </div>
   </a>
 </div>
 
 <div class="mySlides_2 fade_2">
   <div class="numbertext_2">3 / 3</div>
-  <a target="_blank" href="images/gallery/02(3).jpg"><img src="images/gallery/thumbs/02(3)_lt.jpg"  style="width:100%;padding:0px; margin:0px">
+  <a target="_blank" href="images/gallery/02(3).jpg"><img src="images/gallery/thumbs/02(3)_lt.jpg"  style="width:100%;padding:5px; margin:0px">
   <div class="text-block"><strong>
-    <p align="center" style="font-size: 22px; padding: 5px; margin: 0px">CLICK / TOUCH <br /> TO VIEW</p></strong>
+    <p align="center" style="font-size: calc(22px + (36 - 20) * ((100vw - 1000px) / (1600 - 800))); padding: 5px; margin: 0px">CLICK / TOUCH <br /> TO VIEW EACH ONE</p></strong>
   </div>
   </a>
 </div>
@@ -1514,10 +1507,10 @@ function myFunction() {
 
 </div>
 
-<div style="text-align:center; padding:5px 0px 5px 0px">
-  <span style="text-align:center" class="dot_2" onclick="currentSlide_2(1)"></span> 
-  <span class="dot_2" onclick="currentSlide_2(2)"></span> 
-  <span class="dot_2" onclick="currentSlide_2(3)"></span> 
+<div style="text-align:center;">
+  <span style="text-align:center" class="dot_3" onclick="currentSlide_2(1)"></span> 
+  <span class="dot_3" onclick="currentSlide_2(2)"></span> 
+  <span class="dot_3" onclick="currentSlide_2(3)"></span> 
 </div>
 
 <script>
@@ -1535,7 +1528,7 @@ function currentSlide_2(n) {
 function showSlides_2(n) {
   var i_2;
   var slides_2 = document.getElementsByClassName("mySlides_2");
-  var dots_2 = document.getElementsByClassName("dot_2");
+  var dots_2 = document.getElementsByClassName("dot_3");
   if (n > slides_2.length) {slideIndex_2 = 1}    
   if (n < 1) {slideIndex_2 = slides_2.length}
   for (i_2 = 0; i_2 < slides_2.length; i_2++) {
@@ -1556,8 +1549,8 @@ Cnr Buckingham & Sirkel Drive Ext 5 Eldorado Park</h5></div>
 <section id="covid" name="covid"></section>
 <div class="col-sm-4" style="color: #667; background: #fff; border-radius: 10px; padding: 10px; border: 2px solid #bbb" align="center">
 
-<div class="fade" style=" border:1px solid #F00; background-color:#F00; border-radius:10px; padding-bottom:3px"><h8>COVID-19</h8><h5 style="color:#FFF">Coronavirus Disease<br />Updated : 24/03/2020</h5></div>
-<h5 class="fade" style="border: 3px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px; font-size:16px" align="center"><strong>Overview</strong></h5>
+<div class="fade" style="border: 1px solid #F00; background-color: #F00; border-radius: 10px; padding-bottom: 7px"><h8>COVID-19</h8><h5 style="color:#FFF">Coronavirus Disease<br />Updated : 24/03/2020</h5></div>
+<h5 class="fade" style="border: 3px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:5px; font-size:calc(16px + (20 - 16) * ((100vw - 1000px) / (1600 - 800)))" align="center"><strong>Overview</strong></h5>
 
 <p class="fade" id="grad_2" style="padding:10px;border-radius:10px;margin:0px">Coronavirus disease (COVID-19) is an infectious disease caused by a new version of the Corona virus.
 The disease causes respiratory illness (like the flu) with symptoms such as a cough, fever, and in more severe cases, difficulty breathing.</p>
@@ -1570,7 +1563,7 @@ Coronavirus disease spreads primarily through contact with an infected person wh
 
 
 
-<a class="button_2" data-toggle="collapse" data-parent="#accordion" href="#collapse_01" style="text-decoration:none;"><h5 class="fade footer1" style="border: 3px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:10px 5px 10px 5px; font-size:16px;" align="center"><strong>Prevention</strong></h5></a>
+<a class="button_2" data-toggle="collapse" data-parent="#accordion" href="#collapse_01" style="text-decoration:none;"><h5 class="fade footer1" style="border: 3px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:10px 5px 10px 5px; font-size:calc(16px + (20 - 16) * ((100vw - 1000px) / (1600 - 800)));" align="center"><strong>Prevention</strong></h5></a>
         <div id="collapse_01" class="panel-collapse collapse">
         <p class="fade" style="padding:10px;border-radius:10px; margin:0px">
 
@@ -1602,7 +1595,7 @@ Don't
 Touch your eyes, nose, or mouth if your hands are not clean
 </p>
       </div>
-      <a class="button_2" data-toggle="collapse" data-parent="#accordion" href="#collapse_02" style="text-decoration:none;"><h5 class="fade footer1" style="border: 3px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:10px 5px 10px 5px; font-size:16px;" align="center"><strong>Symptoms</strong></h5></a>
+      <a class="button_2" data-toggle="collapse" data-parent="#accordion" href="#collapse_02" style="text-decoration:none;"><h5 class="fade footer1" style="border: 3px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:10px 5px 10px 5px; font-size:calc(16px + (20 - 16) * ((100vw - 1000px) / (1600 - 800)));" align="center"><strong>Symptoms</strong></h5></a>
         <div id="collapse_02" class="panel-collapse collapse">
         <p class="fade" style="padding:10px;border-radius:10px; margin:0px">
 
@@ -1618,7 +1611,7 @@ tiredness
 difficulty breathing (severe cases)
 </p>
       </div>
-      <a class="button_2" data-toggle="collapse" data-parent="#accordion" href="#collapse_03" style="text-decoration:none;"><h5 class="fade footer1" style="border: 3px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:10px 5px 10px 5px; font-size:16px;" align="center"><strong>Treatment</strong></h5></a>
+      <a class="button_2" data-toggle="collapse" data-parent="#accordion" href="#collapse_03" style="text-decoration:none;"><h5 class="fade footer1" style="border: 3px solid #f90; padding-bottom:2px; padding:5px; border-radius:10px; margin:10px 5px 10px 5px; font-size:calc(16px + (20 - 16) * ((100vw - 1000px) / (1600 - 800)));" align="center"><strong>Treatment</strong></h5></a>
         <div id="collapse_03" class="panel-collapse collapse">
         <p class="fade" style="padding:10px;border-radius:10px; margin:0px">
 
@@ -1664,7 +1657,7 @@ Watsapp - 0600 123 456</strong>
 <br />
 <a href="https://www.simplyhired.com">www.simplyhired.com</a>
 </p></h5>
-<h3 class="fade" style="color: #FFF; padding:5px ; border: 1px solid #fc0; background-color:#fc0; border-radius:10px" align="center">Interview Tips</h3>
+<h3 class="fade" style="color: #FFF; padding:5px ; border: 1px solid #fc0; background-color:#fc0; border-radius:10px;" align="center">Interview Tips</h3>
 <h5><p class="fade" id="grad_2" style="padding:10px;border-radius:10px; background-color:#fff">Here are some links for tips on how to prepare yourself for an interview.
 <br /><br />
 <a href="https://www.tpc.co.za/interview-tips.html">www.tpc.co.za</a>
@@ -1672,7 +1665,7 @@ Watsapp - 0600 123 456</strong>
 <a href="https://careeradvice.careers24.com/career-advice/interview-tips/">careeradvice.career24.com</a>
 </p>
 </h5>
-<h3 class="fade" style="color: #FFF; padding:5px ; border: 1px solid #fc0; background-color:#fc0; border-radius:10px" align="center">Internships</h3>
+<h3 class="fade" style="color: #FFF; padding:5px ; border: 1px solid #fc0; background-color:#fc0; border-radius:10px;" align="center">Internships</h3>
 <h5><p class="fade" id="grad_2" style="padding:10px;border-radius:10px; background-color:#fff">Here are a few links if you are interested in looking to study and work at the same time.
 <br /><br />
 <a href="https://www.careerportal.co.za/learnerships">www.careerportal.co.za</a>
