@@ -1,1 +1,78 @@
 
+  .section{
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+  }
+  .tabs .indicator {
+    background-color: #039be5;
+  }
+  .tabs .tab a:focus, .tabs .tab a:focus.active{
+    background: transparent;
+  }
+  .space5 {
+    margin-top: 20px;
+  }
+  .space10 {
+    margin-top: 100px;
+  }
+  .space1x1 {
+    margin: 0.3px 0 0 0.5px;
+  }
+  .services {
+    background-color: #ddd;
+    padding: 15px 15px 17px 15px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+  }
+  .icon_padding {
+    padding: 5px;
+  }
+  .background_color_2 {
+   border-top: 4px solid #fff;
+   border-bottom: 4px solid #fff;
+    border-radius: 20px 40% 20px 20px;
+  }
+
+  .background_color_3 {
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+     border-radius: 40% 20px 20px 20px;
+   }
+
+  .pretty-images {
+    border-radius: 7px;
+    border: 1px solid #999;
+  }
+  .preloader-background {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    background-color: #eee;
+    position: fixed;
+    z-index: 100; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;	
+    }
+
+    .sub_sec{
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 20px;
+      color: #777;
+    }
+
+    .sub_sec_2{
+      background-color: #faab02;
+      padding: 10px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: bold;
+    }
+    .sub_sec_3{
+      background-color: #fff;
+      padding: 10px;
+      margin: 20px 20px;
+      border-radius: 20px;
+    }
