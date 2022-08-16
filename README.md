@@ -1,0 +1,4 @@
+- 👋 Hi, I’m Sean Adams
+- 👀 I’m interested in Website/Webapp development
+- 🌱 I’m currently learning Website Security
+- 📫 You can reach me on my website https://animite.github.io
